@@ -1,0 +1,331 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "User-Hobbies-CRUD",
+    "description": "User-Hobbies-CRUD",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/hobbies": {
+      "get": {
+        "tags": [
+          "Hobbies"
+        ],
+        "summary": "List Hobbies",
+        "responses": {
+          "200": {
+            "description": "List of Hobbies",
+            "schema": {
+              "$ref": "#/definitions/Hobbies"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Hobbies"
+        ],
+        "summary": "Create new hobby in system",
+        "description": "Create new hobby in system",
+        "parameters": [
+          {
+            "name":"Reading",
+            "passionLevel":"high",
+            "year":2012,
+            "userId":"5e373b4d2ecce62beff17955",
+            "in": "body",
+            "schema": {
+              "required": [
+                "name",
+                "passionLevel",
+                "year",
+                "userId"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "passionLevel": {
+                  "type": "string"
+                },
+                "year": {
+                  "type": "integer"
+                },
+                "userId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New Hobby is created",
+            "schema": {
+              "$ref": "#/definitions/Hobby"
+            }
+          }
+        }
+      }
+    },
+    "/hobbies/{id}": {
+      "patch": {
+        "tags": [
+          "Hobbies"
+        ],
+        "summary": "Update hobby in system",
+        "description": "Update hobby in system",
+        "parameters": [
+          {
+            "name":"Reading",
+            "passionLevel":"high",
+            "year":2012,
+            "userId":"5e373b4d2ecce62beff17955",
+            "in": "body",
+            "schema": {
+              "required": [
+                "name",
+                "passionLevel",
+                "year",
+                "userId"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "passionLevel": {
+                  "type": "string"
+                },
+                "year": {
+                  "type": "integer"
+                },
+                "userId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Hobby is updated",
+            "schema": {
+              "$ref": "#/definitions/Hobby"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Hobbies"
+        ],
+        "summary": "delete Hobby",
+        "responses": {
+          "200": {
+            "description": "delete Hobby",
+            "parameters": [
+              {
+                "id":"5e373b4d2ecce62beff17955",
+                "in": "path",
+                "required": true,
+                "description":"The Id that needs to be deleted",
+                "type": "string"
+              }
+            ],
+            "produces": [
+              "application/json"
+            ],
+            "responses": {
+              "200": {
+                "description": "hobby is updated",
+                "schema": {
+                  "$ref": "#/definitions/Hobby"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "List users",
+        "responses": {
+          "200": {
+            "description": "List of users",
+            "schema": {
+              "$ref": "#/definitions/Users"
+            }
+          }
+        }
+      },
+    "post": {
+      "tags": [
+        "Users"
+      ],
+      "summary": "Create new user in system",
+      "description": "Create new user in system",
+      "parameters": [
+        {
+          "name":"user",
+          "in": "body",
+          "schema": {
+            "required": [
+              "name"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "responses": {
+        "200": {
+          "description": "New User is created",
+          "schema": {
+            "$ref": "#/definitions/User"
+          }
+        }
+      }
+    }
+    },
+    "/users/{id}": {
+      "patch": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Update user in system",
+        "description": "Update user in system",
+        "parameters": [
+          {
+            "name":"user",
+            "in": "body",
+            "schema": {
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "user is updated",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "delete User",
+        "responses": {
+          "200": {
+            "description": "delete User",
+            "parameters": [
+              {
+                "id":"5e373b4d2ecce62beff17955",
+                "in": "path",
+                "required": true,
+                "description":"The Id that needs to be deleted",
+                "type": "string"
+              }
+            ],
+            "produces": [
+              "application/json"
+            ],
+            "responses": {
+              "200": {
+                "description": "user is deleted",
+                "schema": {
+                  "$ref": "#/definitions/User"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "Users": {
+      "type": "array",
+      "$ref": "#/definitions/User"
+    },
+    "Hobby": {
+      "required": [
+        "name",
+        "passionLevel",
+        "year",
+        "userId"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "passionLevel": {
+          "type": "string"
+        },
+        "year": {
+          "type": "integer"
+        },
+        "userId": {
+          "type": "string"
+        }
+      }
+    },
+    "Hobbies": {
+      "type": "array",
+      "$ref": "#/definitions/Hobby"
+    }
+  }
+}
